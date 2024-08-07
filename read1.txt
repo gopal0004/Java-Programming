@@ -1,0 +1,8 @@
+Hello,Good Morning
+My name is gopal bera and i am pursuing my MCA at Dept. of Computer Science
+This Should be appended
+This Should be appended
+This Should be appended
+From BufferedWriter
+This Should be appendedFrom BufferedWriter
+New Line without slash n
