@@ -1,36 +1,28 @@
+package DSA;
 
-class A extends Thread {
+class A {
+    void show() {
+        System.out.println("in class A");
+    }
+}
 
-    // @Override
-    public void run() {
-        Thread th = Thread.currentThread();
-        String name = th.getName();
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println(i + " " + name);
-            try {
-                sleep(5);
-            } catch (InterruptedException e) {
-                System.out.println("emm" + e);
-            }
-        }
+class B extends A {
+    void show2() {
+        System.out.println("in class B");
     }
 }
 
 public class Demo {
-    public static void main(String[] args) throws InterruptedException {
-        A a = new A();
-        Thread th = Thread.currentThread();
-        String name = th.getName();
-        a.start();
-        a.join();
-        for (int i = 0; i < 5; i++) {
-            System.out.println(i + " " + name);
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
+    public static void main(String[] args) {
+        // it is implicitly available when we write A obj=new A();
+        A obj = (A) new B(); // up casting of object means point to parents class
+        obj.show(); // no matter whose reference you are taking but it will point class A
+
+        try {
+            B obj1 = (B) new A();
+            obj1.show2();
+        } catch (ClassCastException e) {
+            System.out.println("invalid casting " + e);
         }
     }
 }
